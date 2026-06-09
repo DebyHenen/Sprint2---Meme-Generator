@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body onload="onInit()">
     <header>
         <h1>Meme Generator</h1>
     </header>
@@ -20,10 +20,12 @@
     <section class="section-editor">
         <h2>Meme Editor</h2>
         <div class="main-editor">
-            <canvas class="canvas-editor"></canvas>
+            <canvas class="canvas-editor" width="500" height="500"></canvas>
         </div>
     </section>
     <script src="js/main.js"></script>
+    <script src="js/meme.service.js"></script>
+     <script src="js/meme.controller.js"></script>
 
 </body>
 </html>
