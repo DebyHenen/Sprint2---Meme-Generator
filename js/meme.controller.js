@@ -6,14 +6,14 @@ var gCtx
 function onInit() {
     gElCanvas = document.querySelector('.canvas-editor')
     gCtx = gElCanvas.getContext('2d')
-    renderMeme()
+    renderGallery()
 
 }
 
 function renderMeme() {
     const meme = getMeme()
     const elImg = new Image()
-    elImg.src = 'images/5.jpg'
+    elImg.src = `images/${meme.selectedImgId}.jpg`
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
@@ -24,4 +24,10 @@ function renderMeme() {
         gCtx.fillText(line.txt, gElCanvas.width / 2, 60)
 
     }
+}
+
+function onTxtChange(event){
+    const txt = event.target.value
+    setLineTxt(txt)
+    renderMeme()
 }

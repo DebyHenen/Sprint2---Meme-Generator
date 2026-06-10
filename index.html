@@ -17,15 +17,22 @@
         <div class="images"></div>
     </section>
 
-    <section class="section-editor">
+    <section class="section-editor hidden">
         <h2>Meme Editor</h2>
         <div class="main-editor">
             <canvas class="canvas-editor" width="500" height="500"></canvas>
         </div>
+
+        <div class="controls-editor">
+            <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
+        </div>
     </section>
     <script src="js/main.js"></script>
+    <script src="js/gallery.service.js"></script>
     <script src="js/meme.service.js"></script>
-     <script src="js/meme.controller.js"></script>
+     <script src="js/gallery.controller.js"></script>
+    <script src="js/meme.controller.js"></script>
 
 </body>
+
 </html>

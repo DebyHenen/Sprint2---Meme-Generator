@@ -1,17 +1,25 @@
 'use strict'
 
-var gMeme = { 
-    selectedImgId: 5, 
+var gMeme = {
+    selectedImgId: 5,
     selectedLineIdx: 0,
-     lines: [
-        { 
-            txt: 'I sometimes eat Falafel', 
-            size: 20, 
-            color: 'red' 
+    lines: [
+        {
+            txt: 'Add Text Here',
+            size: 20,
+            color: 'white'
         }
     ]
-    }
+}
 
-    function getMeme(){
-        return gMeme
-    }
+function getMeme() {
+    return gMeme
+}
+
+function setLineTxt(txt){
+gMeme.lines[gMeme.selectedLineIdx].txt = txt
+}
+
+function setImg(imgId){
+    gMeme.selectedImgId= imgId
+}
