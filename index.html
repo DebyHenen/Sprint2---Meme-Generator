@@ -7,9 +7,10 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body onload="onInit()">
@@ -21,18 +22,17 @@
         </nav>
     </header>
     <section class="section-gallery">
-        <h2>Image Gallery</h2>
         <div class="images"></div>
     </section>
 
     <section class="section-editor hidden">
-        <h2>Meme Editor</h2>
         <div class="main-editor">
-            <canvas class="canvas-editor" width="500" height="500"></canvas>
-        </div>
-
-        <div class="controls-editor">
-            <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
+            <div class="canvas-container">
+                <canvas class="canvas-editor" width="500" height="500"></canvas>
+            </div>
+            <div class="controls-editor">
+                <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
+            </div>
         </div>
     </section>
     <script src="js/main.js"></script>

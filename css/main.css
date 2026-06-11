@@ -1,15 +1,15 @@
 :root {
-    --clr-primary-2: #eaf6ff;
+    --clr-primary-2: #ebeef3;
     --clr-primary-1: #b9ddff;
     --clr-primary-base: #75aadb;
     --clr-primary--1: #3f7fbd;
 
     --clr-secondary: #f6b40e;
     --clr-white: #ffffff;
-    --clr-text: #1f2937;
-    --cr-bg-1: #343844;
-    --clr-bg-base: #20242f;
-    
+    --clr-text: #3d3d3d;
+    --cr-bg-1: #383b42;
+    --clr-bg-base: #22252c;
+    --cr-bg--1: #252936;
 }
 
 :root {
@@ -32,7 +32,11 @@ header {
     margin: 1rem;
     padding: 1rem 2rem;
     border-radius: 999px;
-    background: linear-gradient(-86deg, var(--clr-primary--1) 0, var(--clr-primary-1) 100%);
+    background: linear-gradient(    
+    135deg,
+    var(--clr-primary--1),
+    var(--clr-primary-base),
+    var(--clr-primary-1));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,7 +69,7 @@ h1 {
 
 .section-gallery {
     background-color: var(--cr-bg-1);
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 1rem;
     padding: 1.5rem;
 }
@@ -86,6 +90,59 @@ h1 {
     aspect-ratio: 1/1;
 }
 
+.images img:hover{
+    transform: scale(1.03);
+}
+
+.main-editor{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.section-editor
+
+.canvas-container{
+    
+    border-radius: 24px;
+    border: 6px solid var(--clr-text);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.canvas-editor{
+max-width: 100%;
+border-radius: 20px;
+display: block;
+}
+
+.controls-editor{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 24px;
+    background-color:var(--cr-bg-1);
+}
+
+.txt-input{
+width: 100%;
+padding: 0.9rem 1.2rem;
+border: none;
+font-family: var(--main-font);
+font-size: 1.4rem;
+color: var(-clr-primary-2);
+border-radius: 28px;
+}
+
+.controls-editor input:focus{
+outline: 3px solid var(--clr-primary--1)
+
+}
+
+.txt-input::placeholder{
+    color: var(--clr-text);
+}
 .hidden {
     display: none;
 }
+
