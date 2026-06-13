@@ -32,6 +32,10 @@
             </div>
             <div class="controls-editor">
                 <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
+                <div class="style-controls">
+                    <input type="color" class="color-picker" oninput="onSetColor(this.value)">
+                </div>
+
                 <div class="actions">
                     <a class="btn-download" href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
 

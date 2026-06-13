@@ -7,7 +7,7 @@ var gMeme = {
         {
             txt: 'Add Text Here',
             size: 20,
-            color: 'white'
+            color: '#ffffff'
         }
     ]
 }
@@ -22,4 +22,8 @@ gMeme.lines[gMeme.selectedLineIdx].txt = txt
 
 function setImg(imgId){
     gMeme.selectedImgId= imgId
+}
+
+function setColor(color){
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }

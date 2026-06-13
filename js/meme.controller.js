@@ -17,7 +17,7 @@ function renderMeme() {
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        const line = meme.lines[0]
+        const line = meme.lines[meme.selectedLineIdx]
         gCtx.font = `${line.size}px Impact`
            gCtx.fillStyle = line.color
             gCtx.textAlign = 'center'
@@ -29,6 +29,11 @@ function renderMeme() {
 function onTxtChange(event){
     const txt = event.target.value
     setLineTxt(txt)
+    renderMeme()
+}
+
+function onSetColor(color){
+    setColor(color)
     renderMeme()
 }
 
