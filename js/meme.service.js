@@ -5,14 +5,11 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Add Top Text Here',
+            txt: 'Add Text Here',
             size: 40,
-            color: '#ffffff'
-        },
-        {
-            txt: 'Add bottom Text Here',
-            size: 40,
-            color: '#ffffff'
+            color: '#ffffff',
+            x: 250,
+            y: 60
         }
     ]
 }
@@ -40,3 +37,19 @@ function setFontSize(diff) {
     console.log(line.size)
 }
 
+function addLine() {
+    gMeme.lines.push({
+        txt: 'Add Text Here',
+        size: 40,
+        color: '#ffffff',
+        x: 250,
+        y: 60 + gMeme.lines.length * 60
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function switchLine() {
+    gMeme.selectedLineIdx++
+
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
+}

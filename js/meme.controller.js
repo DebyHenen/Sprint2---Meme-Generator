@@ -25,9 +25,25 @@ function renderMeme() {
             gCtx.strokeStyle = '#000000'
             gCtx.textAlign = 'center'
 
-            const y = idx === 0 ? 60 : gElCanvas.height - 40
-            gCtx.fillText(line.txt, gElCanvas.width / 2, y)
-            gCtx.strokeText(line.txt, gElCanvas.width / 2, y)
+            // const y = idx === 0 ? 60 : gElCanvas.height - 40
+            gCtx.fillText(line.txt, line.x, line.y)
+            gCtx.strokeText(line.txt, line.x, line.y)
+
+            if (idx === meme.selectedLineIdx) {
+                const textWidth = gCtx.measureText(line.txt).width
+                const x = line.x - textWidth / 2 - 10
+                const y = line.y - line.size
+                const width = textWidth + 20
+                const height = line.size + 10
+
+                gCtx.fillStyle = 'rgba(255, 255, 255, 0.2)'
+                gCtx.fillRect(x, y, width, height)
+
+                gCtx.strokeStyle = 'rgba(255, 255, 255, 0.8)'
+                gCtx.lineWidth = 1
+
+                gCtx.strokeRect(x, y, width, height)
+            }
 
         })
     }
@@ -48,6 +64,28 @@ function onSetFontSize(diff) {
     setFontSize(diff)
     renderMeme()
 }
+
+function onAddLine() {
+    addLine()
+    updateCurrInput()
+    renderMeme()
+}
+
+function onSwitchLine() {
+    switchLine()
+    updateCurrInput()
+    renderMeme()
+}
+
+function updateCurrInput() {
+    const meme = getMeme()
+    const line = meme.lines[meme.selectedLineIdx]
+
+    document.querySelector('.txt-input').value = line.txt
+}
+
+
+
 
 function onDownloadMeme(elLink) {
     elLink.href = gElCanvas.toDataURL()
