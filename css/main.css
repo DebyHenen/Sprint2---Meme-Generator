@@ -7,6 +7,7 @@
     --clr-secondary: #f6b40e;
     --clr-white: #ffffff;
     --clr-text: #3d3d3d;
+    --clr-text-2: #0a1c34;
     --cr-bg-1: #383b42;
     --clr-bg-base: #22252c;
     --cr-bg--1: #252936;
@@ -32,11 +33,10 @@ header {
     margin: 1rem;
     padding: 1rem 2rem;
     border-radius: 999px;
-    background: linear-gradient(    
-    135deg,
-    var(--clr-primary--1),
-    var(--clr-primary-base),
-    var(--clr-primary-1));
+    background: linear-gradient(135deg,
+            var(--clr-primary--1),
+            var(--clr-primary-base),
+            var(--clr-primary-1));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -90,59 +90,81 @@ h1 {
     aspect-ratio: 1/1;
 }
 
-.images img:hover{
+.images img:hover {
     transform: scale(1.03);
 }
 
-.main-editor{
-    display:flex;
+.main-editor {
+    display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 4rem;
+    gap: 5rem;
 }
 
-.section-editor
+.section-editor {
+    margin: 2rem;
+    padding: 1.5rem;
+}
 
-.canvas-container{
-    
+.canvas-container {
+
     border-radius: 24px;
-    border: 6px solid var(--clr-text);
+    border: 6px solid #3f4654;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+
 }
 
-.canvas-editor{
-max-width: 100%;
-border-radius: 20px;
-display: block;
+.canvas-editor {
+    max-width: 100%;
+    border-radius: 20px;
+    display: block;
 }
 
-.controls-editor{
-    max-width: 600px;
-    margin: 0 auto;
+.controls-editor {
+    width: 600px;
     padding: 2rem;
     border-radius: 24px;
-    background-color:var(--cr-bg-1);
+    background-color: var(--cr-bg-1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.txt-input{
-width: 100%;
-padding: 0.9rem 1.2rem;
-border: none;
-font-family: var(--main-font);
-font-size: 1.4rem;
-color: var(-clr-primary-2);
-border-radius: 28px;
+.txt-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: none;
+    font-family: var(--main-font);
+    font-size: 1.4rem;
+    color: var(-clr-primary-2);
+    border-radius: 28px;
 }
 
-.controls-editor input:focus{
-outline: 3px solid var(--clr-primary--1)
-
+.controls-editor input:focus {
+    outline: 3px solid var(--clr-primary--1)
 }
 
-.txt-input::placeholder{
+.txt-input::placeholder {
     color: var(--clr-text);
 }
+
+.actions{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-download{
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 15px;
+    background-color: var(--clr-secondary);
+    color:var(--clr-text-2);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
 .hidden {
     display: none;
 }
-

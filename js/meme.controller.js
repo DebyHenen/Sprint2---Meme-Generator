@@ -31,3 +31,9 @@ function onTxtChange(event){
     setLineTxt(txt)
     renderMeme()
 }
+
+function onDownloadMeme(elLink){
+elLink.href = gElCanvas.toDataURL()
+elLink.download = 'my-meme'
+
+}
