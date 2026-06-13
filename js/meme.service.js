@@ -48,6 +48,10 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
+function setSelectedLine(idx) {
+    gMeme.selectedLineIdx = idx
+}
+
 function switchLine() {
     gMeme.selectedLineIdx++
 

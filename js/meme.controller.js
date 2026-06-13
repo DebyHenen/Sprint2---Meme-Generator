@@ -6,6 +6,7 @@ var gCtx
 function onInit() {
     gElCanvas = document.querySelector('.canvas-editor')
     gCtx = gElCanvas.getContext('2d')
+    gElCanvas.addEventListener('click', onCanvasClick)
     renderGallery()
 
 }
@@ -21,7 +22,7 @@ function renderMeme() {
         meme.lines.forEach((line, idx) => {
             gCtx.font = `${line.size}px Impact`
             gCtx.fillStyle = line.color
-            gCtx.lineWidth = 2
+            gCtx.lineWidth = 1
             gCtx.strokeStyle = '#000000'
             gCtx.textAlign = 'center'
 
@@ -29,8 +30,12 @@ function renderMeme() {
             gCtx.fillText(line.txt, line.x, line.y)
             gCtx.strokeText(line.txt, line.x, line.y)
 
+            const textWidth = gCtx.measureText(line.txt).width
+            line.width = textWidth
+            line.height = line.size
+            console.log(line)
+
             if (idx === meme.selectedLineIdx) {
-                const textWidth = gCtx.measureText(line.txt).width
                 const x = line.x - textWidth / 2 - 10
                 const y = line.y - line.size
                 const width = textWidth + 20
@@ -84,7 +89,49 @@ function updateCurrInput() {
     document.querySelector('.txt-input').value = line.txt
 }
 
+function getEvPos(ev) {
+    const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (TOUCH_EVS.includes(ev.type)) {
+        // Prevent triggering the mouse ev
+        ev.preventDefault()
+        // Gets the first touch point
+        ev = ev.changedTouches[0]
+        // Calc the right pos according to the touch screen
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
+
+function onCanvasClick(ev) {
+    console.log('clicked')
+    const pos = getEvPos(ev)
+    console.log(pos)
+    const meme = getMeme()
+
+    const clickedLineIdx = meme.lines.findIndex(line => {
+        const left = line.x - line.width / 2
+        const right = left + line.width
+        const top = line.y - line.height
+        const bottom = line.y
+        return (
+            pos.x >= left && pos.x <= right && pos.y >= top && pos.y <= bottom
+        )
+    })
+
+    if (clickedLineIdx === -1) return
+    setSelectedLine(clickedLineIdx)
+    updateCurrInput()
+    renderMeme()
+}
 
 
 function onDownloadMeme(elLink) {
