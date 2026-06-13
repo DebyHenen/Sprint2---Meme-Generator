@@ -17,33 +17,40 @@ function renderMeme() {
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        const line = meme.lines[meme.selectedLineIdx]
-        gCtx.font = `${line.size}px Impact`
-           gCtx.fillStyle = line.color
+        // const line = meme.lines[meme.selectedLineIdx]
+        meme.lines.forEach((line, idx) => {
+            gCtx.font = `${line.size}px Impact`
+            gCtx.fillStyle = line.color
+            gCtx.lineWidth = 2
+            gCtx.strokeStyle = '#000000'
             gCtx.textAlign = 'center'
-        gCtx.fillText(line.txt, gElCanvas.width / 2, 60)
 
+            const y = idx === 0 ? 60 : gElCanvas.height - 40
+            gCtx.fillText(line.txt, gElCanvas.width / 2, y)
+            gCtx.strokeText(line.txt, gElCanvas.width / 2, y)
+
+        })
     }
 }
 
-function onTxtChange(event){
+function onTxtChange(event) {
     const txt = event.target.value
     setLineTxt(txt)
     renderMeme()
 }
 
-function onSetColor(color){
+function onSetColor(color) {
     setColor(color)
     renderMeme()
 }
 
-function onSetFontSize(diff){
+function onSetFontSize(diff) {
     setFontSize(diff)
     renderMeme()
 }
 
-function onDownloadMeme(elLink){
-elLink.href = gElCanvas.toDataURL()
-elLink.download = 'my-meme'
+function onDownloadMeme(elLink) {
+    elLink.href = gElCanvas.toDataURL()
+    elLink.download = 'my-meme'
 
 }
