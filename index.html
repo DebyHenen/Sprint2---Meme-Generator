@@ -32,7 +32,10 @@
             </div>
             <div class="controls-editor">
                 <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
+
                 <div class="style-controls">
+                    <button onclick="onSetFontSize(2)">A+</button>
+                    <button onclick="onSetFontSize(-2)">A-</button>
                     <input type="color" class="color-picker" oninput="onSetColor(this.value)">
                 </div>
 

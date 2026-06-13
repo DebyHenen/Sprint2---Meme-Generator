@@ -6,7 +6,7 @@ var gMeme = {
     lines: [
         {
             txt: 'Add Text Here',
-            size: 20,
+            size: 40,
             color: '#ffffff'
         }
     ]
@@ -16,14 +16,22 @@ function getMeme() {
     return gMeme
 }
 
-function setLineTxt(txt){
-gMeme.lines[gMeme.selectedLineIdx].txt = txt
+function setLineTxt(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
-function setImg(imgId){
-    gMeme.selectedImgId= imgId
+function setImg(imgId) {
+    gMeme.selectedImgId = imgId
 }
 
-function setColor(color){
+function setColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
+
+function setFontSize(diff) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    if (line.size + diff < 10) return
+    line.size += diff
+    console.log(line.size)
+}
+

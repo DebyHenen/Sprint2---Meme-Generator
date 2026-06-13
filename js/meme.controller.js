@@ -37,6 +37,11 @@ function onSetColor(color){
     renderMeme()
 }
 
+function onSetFontSize(diff){
+    setFontSize(diff)
+    renderMeme()
+}
+
 function onDownloadMeme(elLink){
 elLink.href = gElCanvas.toDataURL()
 elLink.download = 'my-meme'
