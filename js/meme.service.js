@@ -57,3 +57,16 @@ function switchLine() {
 
     if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
 }
+
+function resetMeme(){
+    gMeme.selectedLineIdx = 0
+    gMeme.lines = [
+        {
+            txt: 'Add Text Here',
+            size: 40,
+            color: '#ffffff',
+            x: 250,
+            y: 60
+        }
+    ]
+}
