@@ -14,9 +14,12 @@
 </head>
 
 <body onload="onInit()">
+    <div class="main-screen" onclick="onToggleMenu()"></div>
     <main class="main-layout">
     <header>
         <h1>MessiMEME</h1>
+
+        <button class="hamburger-nav" onclick="onToggleMenu()" type="button">☰</button>
         <nav class="main-nav">
             <a class="nav-gallery active" onclick="showGallery()">Gallery</a>
             <a class="nav-editor" onclick="showEditor()">Editor</a>

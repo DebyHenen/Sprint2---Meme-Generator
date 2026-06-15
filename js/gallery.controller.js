@@ -14,6 +14,9 @@ function showEditor() {
     document.querySelector('.section-editor').classList.remove('hidden')
     document.querySelector('.nav-gallery').classList.remove('active')
     document.querySelector('.nav-editor').classList.add('active')
+    document.querySelector('.main-nav').classList.remove('open')
+    document.querySelector('.main-screen').classList.remove('open')
+
     updateCurrInput()
     renderMeme()
 }
@@ -29,4 +32,12 @@ function showGallery() {
     document.querySelector('.section-gallery').classList.remove('hidden')
     document.querySelector('.nav-editor').classList.remove('active')
     document.querySelector('.nav-gallery').classList.add('active')
+    document.querySelector('.main-nav').classList.remove('open')
+    document.querySelector('.main-screen').classList.remove('open')
+
+}
+
+function onToggleMenu() {
+    document.querySelector('.main-nav').classList.toggle('open')
+    document.querySelector('.main-screen').classList.toggle('open')
 }
