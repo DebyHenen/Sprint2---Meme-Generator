@@ -14,6 +14,7 @@
 </head>
 
 <body onload="onInit()">
+    <main class="main-layout">
     <header>
         <h1>MessiMEME</h1>
         <nav class="main-nav">
@@ -21,6 +22,7 @@
             <a class="nav-editor" onclick="showEditor()">Editor</a>
         </nav>
     </header>
+    
     <section class="section-gallery">
         <div class="images"></div>
     </section>
@@ -34,14 +36,16 @@
                 <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
 
                 <div class="line-controls">
-                    <button onclick="onAddLine()" class="btn add-line">+</button>
-                    <button onclick="onSwitchLine()" class="btn">⮁</button>
+                    <button onclick="onSwitchLine()" class="btn btn-line">⮁</button>
+                    <button onclick="onAddLine()" class="btn btn-line">+</button>
+                    
                 </div>
 
                 <div class="style-controls">
-                    <button onclick="onSetFontSize(2)">A+</button>
-                    <button onclick="onSetFontSize(-2)">A-</button>
-                    <input type="color" class="color-picker" oninput="onSetColor(this.value)">
+                    <button onclick="onSetFontSize(2)" class="btn">A+</button>
+                    <button onclick="onSetFontSize(-2)" class="btn">A-</button>
+                    <button onclick="onOpenClrPicker()" class="btn">🎨
+                    <input type="color" class="color-picker" oninput="onSetColor(this.value)"></button>
                 </div>
 
                 <div class="actions">
@@ -54,6 +58,7 @@
 
         </div>
     </section>
+    </main>
     <script src="js/main.js"></script>
     <script src="js/gallery.service.js"></script>
     <script src="js/meme.service.js"></script>

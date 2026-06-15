@@ -65,6 +65,10 @@ function onSetColor(color) {
     renderMeme()
 }
 
+function onOpenClrPicker(){
+    document.querySelector('.color-picker').click()
+}
+
 function onSetFontSize(diff) {
     setFontSize(diff)
     renderMeme()

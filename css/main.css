@@ -49,7 +49,7 @@ h1 {
     font-weight: bold;
     margin: 0;
     text-shadow:
-        0 2px 4px rgba(0,0,0,3.25);
+        0 2px 4px rgba(0, 0, 0, 3.25);
 
 }
 
@@ -98,10 +98,10 @@ h1 {
     gap: 1.6rem;
     height: 80vh;
     overflow-y: auto;
-    padding-inline: 0.75rem;
-    /* padding-inline-end: 0.75rem; */
-    
-    }
+    padding-block: 0.4rem;
+    padding-inline-start: 0.7rem;
+    padding-inline-end: 1.95rem;
+}
 
 .images img {
 
@@ -112,11 +112,13 @@ h1 {
     transition: 0.2s;
     aspect-ratio: 1/1;
     box-shadow:
-        0 4px 12px rgba(0, 0, 0, .25);
+        0 4px 12px rgba(0, 0, 0, .45);
 }
 
 .images img:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
+
+
 }
 
 .main-editor {
@@ -127,7 +129,7 @@ h1 {
 }
 
 .section-editor {
-    margin: 2rem;
+    margin: 1rem;
     padding: 1.5rem;
 }
 
@@ -142,28 +144,32 @@ h1 {
 
 .canvas-editor {
     max-width: 100%;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     display: block;
 }
 
 .controls-editor {
-    width: 600px;
-    padding: 2rem;
+    width: 525px;
+    padding: 1.6rem;
     border-radius: 24px;
     background-color: var(--cr-bg-1);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
 }
 
 .txt-input {
     width: 100%;
-    padding: 0.9rem 1.2rem;
+    padding: 0.5rem 1.4rem;
     border: none;
     font-family: var(--main-font);
     font-size: 1.4rem;
-    color: var(-clr-primary-2);
+    color: var(--clr-text);
+    text-align: center;
     border-radius: 28px;
+    background-color: var(--clr-primary-2);
+    box-shadow: 0 4px 0 rgba(255, 255, 255, 0.548);
 }
 
 .controls-editor input:focus {
@@ -174,6 +180,59 @@ h1 {
     color: var(--clr-text);
 }
 
+.line-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.style-controls {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: var(--clr-primary-base);
+    display: grid;
+    grid-template-columns: repeat(3, 52px);
+    gap: .8rem;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--clr-white);
+    color: var(--clr-text-2);
+    font-family: var(--main-font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, .18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover,
+.color-picker:hover,
+.btn-download {
+    transform: translateY(-1px);
+}
+
+.btn-line {
+    background-color: var(--clr-primary--1);
+    color: white;
+    box-shadow: 0 4px 0 rgba(4, 180, 224, 0.18);
+}
+
+.color-picker {
+    /* display: none; */
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    
+}
+
 .actions {
     display: flex;
     justify-content: center;
@@ -181,12 +240,13 @@ h1 {
 
 .btn-download {
     display: inline-block;
-    padding: 0.9rem 2rem;
-    border-radius: 15px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
     background-color: var(--clr-secondary);
     color: var(--clr-text-2);
     text-decoration: none;
     font-weight: 600;
+    box-shadow: 0 4px 0 rgba(255, 156, 27, 0.25);
 }
 
 .images::-webkit-scrollbar {
@@ -194,25 +254,48 @@ h1 {
 }
 
 .images::-webkit-scrollbar-track {
-    background: var(--clr-bg-base)
+    background: var(--clr-bg-base);
+    border-radius: 999px;
+
 }
 
 .images::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        180deg,
-        var(--clr-primary-base),
-        var(--clr-primary--1)
-    );
+    background: linear-gradient(180deg,
+            var(--clr-primary-base),
+            var(--clr-primary--1));
 
     border-radius: 999px;
 }
+
 .hidden {
     display: none;
 }
 
-@media (max-width: 900px) {
+.main-layout {
+    width: min(1400px, 95vw);
+    margin-inline: auto;
+}
+
+@media (max-width: 920px) {
     .images {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.7rem;
+    }
+
+    .main-editor {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .controls-editor,
+    .canvas-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .canvas-editor {
+        width: 100%;
+        height: auto;
     }
 }
