@@ -215,7 +215,7 @@ h1 {
 
 .btn:hover,
 .color-picker:hover,
-.btn-download {
+.btn-download:hover {
     transform: translateY(-1px);
 }
 
@@ -282,6 +282,11 @@ h1 {
 
 @media (max-width: 920px) {
 
+    body {
+        overflow-y: auto;
+    }
+
+
     header {
         margin: 0;
         width: 100%;
@@ -292,12 +297,18 @@ h1 {
     .images {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.7rem;
+        height: auto;
+        overflow: visible;
+        padding-inline: 1rem;
     }
 
     .main-editor {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+        height: auto;
+        overflow: visible;
+
     }
 
     .controls-editor,
@@ -311,6 +322,7 @@ h1 {
         height: auto;
     }
 
+  
     .hamburger-nav {
         display: block;
 
@@ -391,4 +403,42 @@ h1 {
         opacity: 1;
         pointer-events: auto;
     }
+
+    .section-gallery,
+    .section-editor {
+        height: calc(100vh - 63px);
+        overflow-y: auto;
+    }
+
+ .section-gallery {
+        margin: 0;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+    }
+
+      .section-editor {
+        margin: 0;
+      }
+
+    .section-gallery::-webkit-scrollbar,
+    .section-editor::-webkit-scrollbar {
+        width: 13px;
+    }
+
+    .section-gallery::-webkit-scrollbar-track,
+    .section-editor::-webkit-scrollbar-track {
+        background: var(--clr-text-2);
+        border-radius: 999px;
+    }
+
+    .section-gallery::-webkit-scrollbar-thumb,
+    .section-editor::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+            180deg,
+            var(--clr-primary-base),
+            var(--clr-primary--1)
+        );
+        border-radius: 999px;
+    }
+   
 }
