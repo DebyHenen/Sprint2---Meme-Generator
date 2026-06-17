@@ -76,6 +76,14 @@ function setTextAlign(align, canvasWidth) {
 
 }
 
+function moveLine(diff, canvasHeight) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.y += diff
+
+    if (line.y < line.size) line.y = line.size
+    if (line.y > canvasHeight - 10) line.y = canvasHeight - 10
+}
+
 function setSelectedLine(idx) {
     gMeme.selectedLineIdx = idx
 }

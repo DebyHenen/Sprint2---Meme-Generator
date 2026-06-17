@@ -16,61 +16,72 @@
 <body onload="onInit()">
     <div class="main-screen" onclick="onToggleMenu()"></div>
     <main class="main-layout">
-    <header>
-        <h1>MessiMEME</h1>
+        <header>
+            <h1>MessiMEME</h1>
 
-        <button class="hamburger-nav" onclick="onToggleMenu()" type="button">☰</button>
-        <nav class="main-nav">
-            <a class="nav-gallery active" onclick="showGallery()">Gallery</a>
-            <a class="nav-editor" onclick="showEditor()">Editor</a>
-        </nav>
-    </header>
-    
-    <section class="section-gallery">
-        <div class="images"></div>
-    </section>
+            <button class="hamburger-nav" onclick="onToggleMenu()" type="button">☰</button>
+            <nav class="main-nav">
+                <a class="nav-gallery active" onclick="showGallery()">Gallery</a>
+                <a class="nav-editor" onclick="showEditor()">Editor</a>
+            </nav>
+        </header>
 
-    <section class="section-editor hidden">
-        <div class="main-editor">
-            <div class="canvas-container">
-                <canvas class="canvas-editor" width="500" height="500"></canvas>
+        <section class="section-gallery">
+            <div class="images"></div>
+        </section>
+
+        <section class="section-editor hidden">
+            <div class="main-editor">
+                <div class="canvas-container">
+                    <canvas class="canvas-editor" width="500" height="500"></canvas>
+                </div>
+                <div class="controls-editor">
+                    <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
+
+                    <div class="line-controls">
+                        <button onclick="onSwitchLine()" class="btn btn-line">⮁</button>
+                        <button onclick="onAddLine()" class="btn btn-line">+</button>
+
+                    </div>
+
+                    <div class="style-controls">
+                        <div class="font-size">
+                            <button onclick="onSetFontSize(2)" class="btn">A+</button>
+                            <button onclick="onSetFontSize(-2)" class="btn">A-</button>
+                        </div>
+
+                        <div class="position">
+                            <button onclick="onSetTextAlign('left')" class="btn">⬅</button>
+                            <button onclick="onSetTextAlign('center')" class="btn">⬌</button>
+                            <button onclick="onSetTextAlign('right')" class="btn">➡</button>
+                            <button onclick="onMoveLine(-10)" class="btn">⬆</button>
+                            <button onclick="onMoveLine(10)" class="btn">⬇</button>
+                        </div>
+
+                        <div class="design-txt">
+                            <select class="font-select btn" onclick="onSetFontFamily(this.value)">
+                                <option value="Impact">Impact</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Proxima Nova">Proxima Nova</option>
+                                <option value="Cursive">Cursive</option>
+                            </select>
+                            <button onclick="onOpenClrPicker()" class="btn">🎨
+                                <input type="color" class="color-picker" oninput="onSetColor(this.value)"></button>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a class="btn-download" href="#" onclick="onDownloadMeme(this)"
+                            download="file-name">Download</a>
+
+                    </div>
+
+                </div>
+
+
             </div>
-            <div class="controls-editor">
-                <input type="text" class="txt-input" placeholder="Add Text Here" oninput="onTxtChange(event)">
-
-                <div class="line-controls">
-                    <button onclick="onSwitchLine()" class="btn btn-line">⮁</button>
-                    <button onclick="onAddLine()" class="btn btn-line">+</button>
-                    
-                </div>
-
-                <div class="style-controls">
-                    <button onclick="onSetFontSize(2)" class="btn">A+</button>
-                    <button onclick="onSetFontSize(-2)" class="btn">A-</button>
-                    <button onclick="onSetTextAlign('left')" class="btn">⬅</button>
-                     <button onclick="onSetTextAlign('center')" class="btn">⬌</button>
-                     <button onclick="onSetTextAlign('right')" class="btn">➡</button>
-                       <select class="font-select btn" onclick="onSetFontFamily(this.value)">
-                        <option value="Impact">Impact</option>
-                        <option value="Arial">Arial</option>
-                        <option value="Courier New">Courier New</option>
-                        <option value="Proxima Nova">Proxima Nova</option>
-                        <option value="Cursive">Cursive</option>
-                    </select>
-                    <button onclick="onOpenClrPicker()" class="btn">🎨
-                    <input type="color" class="color-picker" oninput="onSetColor(this.value)"></button>
-                </div>
-
-                <div class="actions">
-                    <a class="btn-download" href="#" onclick="onDownloadMeme(this)" download="file-name">Download</a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-    </section>
+        </section>
     </main>
     <script src="js/main.js"></script>
     <script src="js/gallery.service.js"></script>

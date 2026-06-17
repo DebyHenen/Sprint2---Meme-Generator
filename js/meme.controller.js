@@ -109,6 +109,11 @@ function onSetTextAlign(align) {
     renderMeme()
 }
 
+function onMoveLine(diff){
+moveLine(diff, gElCanvas.height)
+renderMeme()
+}
+
 function updateCurrInput() {
     const meme = getMeme()
     const line = meme.lines[meme.selectedLineIdx]
