@@ -47,6 +47,16 @@
                 <div class="style-controls">
                     <button onclick="onSetFontSize(2)" class="btn">A+</button>
                     <button onclick="onSetFontSize(-2)" class="btn">A-</button>
+                    <button onclick="onSetTextAlign('left')" class="btn">⬅</button>
+                     <button onclick="onSetTextAlign('center')" class="btn">⬌</button>
+                     <button onclick="onSetTextAlign('right')" class="btn">➡</button>
+                       <select class="font-select btn" onclick="onSetFontFamily(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Proxima Nova">Proxima Nova</option>
+                        <option value="Cursive">Cursive</option>
+                    </select>
                     <button onclick="onOpenClrPicker()" class="btn">🎨
                     <input type="color" class="color-picker" oninput="onSetColor(this.value)"></button>
                 </div>

@@ -9,7 +9,9 @@ var gMeme = {
             size: 40,
             color: '#ffffff',
             x: 250,
-            y: 60
+            y: 60,
+            fontFamily: 'Impact',
+            align: 'center'
         }
     ]
 }
@@ -43,9 +45,35 @@ function addLine() {
         size: 40,
         color: '#ffffff',
         x: 250,
-        y: 60 + gMeme.lines.length * 60
+        y: 60 + gMeme.lines.length * 60,
+        fontFamily: 'Impact',
+        align: 'center'
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function setFontFamily(fontFamily) {
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily
+}
+
+function setTextAlign(align, canvasWidth) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.align = align
+
+    switch (align) {
+        case 'left':
+            line.x = 20
+            break
+
+        case 'center':
+            line.x = canvasWidth / 2
+            break
+
+        case 'right':
+            line.x = canvasWidth - 20
+            break
+    }
+
 }
 
 function setSelectedLine(idx) {
@@ -58,7 +86,7 @@ function switchLine() {
     if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
 }
 
-function resetMeme(){
+function resetMeme() {
     gMeme.selectedLineIdx = 0
     gMeme.lines = [
         {
@@ -66,7 +94,9 @@ function resetMeme(){
             size: 40,
             color: '#ffffff',
             x: 250,
-            y: 60
+            y: 60,
+            fontFamily: 'Impact',
+            align: 'center'
         }
     ]
 }

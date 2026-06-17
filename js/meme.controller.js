@@ -20,11 +20,11 @@ function renderMeme() {
 
         // const line = meme.lines[meme.selectedLineIdx]
         meme.lines.forEach((line, idx) => {
-            gCtx.font = `${line.size}px Impact`
+            gCtx.font = `${line.size}px ${line.fontFamily}`
             gCtx.fillStyle = line.color
             gCtx.lineWidth = 1
             gCtx.strokeStyle = '#000000'
-            gCtx.textAlign = 'center'
+            gCtx.textAlign = line.align
 
             // const y = idx === 0 ? 60 : gElCanvas.height - 40
             gCtx.fillText(line.txt, line.x, line.y)
@@ -36,7 +36,19 @@ function renderMeme() {
             console.log(line)
 
             if (idx === meme.selectedLineIdx) {
-                const x = line.x - textWidth / 2 - 10
+                let x
+            
+                if (line.align === 'left') {
+                    x = line.x - 10
+                } 
+                else if (line.align === 'right') {
+                    x = line.x - textWidth - 10
+                } 
+                else {
+                    x = line.x - textWidth / 2 - 10
+                }
+
+                // const x = line.x - textWidth / 2 - 10
                 const y = line.y - line.size
                 const width = textWidth + 20
                 const height = line.size + 10
@@ -52,6 +64,7 @@ function renderMeme() {
 
         })
     }
+   
 }
 
 function onTxtChange(event) {
@@ -65,7 +78,7 @@ function onSetColor(color) {
     renderMeme()
 }
 
-function onOpenClrPicker(){
+function onOpenClrPicker() {
     document.querySelector('.color-picker').click()
 }
 
@@ -83,6 +96,16 @@ function onAddLine() {
 function onSwitchLine() {
     switchLine()
     updateCurrInput()
+    renderMeme()
+}
+
+function onSetFontFamily(fontFamily) {
+    setFontFamily(fontFamily)
+    renderMeme()
+}
+
+function onSetTextAlign(align) {
+    setTextAlign(align, gElCanvas.width)
     renderMeme()
 }
 
