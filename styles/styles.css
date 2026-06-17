@@ -1,22 +1,5 @@
 /*main*/
-@import url('/styles/main.css');
-
-/*SETUP */
-@import url('/styles/setup/vars.css');
-@import url('/styles/setup/typography.css');
-
-
-/*BASE*/
-@import url('/styles/base/basics.css');
-@import url('/styles/base/helpers.css');
-@import url('/styles/base/layout.css');
-
-/*COMPONENTS*/
-@import url('/styles/components/main-header.css');
-@import url('/styles/components/main-logo.css');
-@import url('/styles/components/main-nav.css');
-@import url('/styles/components/card.css');
-@import url('/styles/components/newsletter.css');
+@import url('./main.css');
 
 /*mq*/
-@import url('/styles/setup/mq.css');
+@import url('./setup/mq.css');
