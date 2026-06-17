@@ -37,13 +37,13 @@ function renderMeme() {
 
             if (idx === meme.selectedLineIdx) {
                 let x
-            
+
                 if (line.align === 'left') {
                     x = line.x - 10
-                } 
+                }
                 else if (line.align === 'right') {
                     x = line.x - textWidth - 10
-                } 
+                }
                 else {
                     x = line.x - textWidth / 2 - 10
                 }
@@ -64,7 +64,7 @@ function renderMeme() {
 
         })
     }
-   
+
 }
 
 function onTxtChange(event) {
@@ -109,14 +109,25 @@ function onSetTextAlign(align) {
     renderMeme()
 }
 
-function onMoveLine(diff){
-moveLine(diff, gElCanvas.height)
-renderMeme()
+function onMoveLine(diff) {
+    moveLine(diff, gElCanvas.height)
+    renderMeme()
+}
+
+function onDeleteLine() {
+    deleteLine()
+    updateCurrInput()
+    renderMeme()
 }
 
 function updateCurrInput() {
     const meme = getMeme()
     const line = meme.lines[meme.selectedLineIdx]
+
+    if (!line){
+         document.querySelector('.txt-input').value = ''
+         return
+    }
 
     document.querySelector('.txt-input').value = line.txt
 }

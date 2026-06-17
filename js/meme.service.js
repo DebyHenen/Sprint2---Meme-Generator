@@ -94,6 +94,15 @@ function switchLine() {
     if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
 }
 
+function deleteLine() {
+   
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = gMeme.lines.length - 1
+    }
+}
+
 function resetMeme() {
     gMeme.selectedLineIdx = 0
     gMeme.lines = [
